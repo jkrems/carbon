@@ -2,7 +2,13 @@ import React from 'react'
 import Spinner from 'react-spinner'
 
 export default function SpinnerWrapper(props) {
-  if (props.loading) {
+  const [loading, setLoading] = React.useState(true);
+
+  React.useEffect(() => {
+    setLoading(false);
+  });
+
+  if (loading) {
     return (
       <div>
         <Spinner />

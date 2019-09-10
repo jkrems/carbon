@@ -6087,32 +6087,11 @@ next-offline@^4.0.5:
     webpack "^4.19.1"
     workbox-webpack-plugin "^4.3.1"
 
-next-server@9.0.6-canary.0:
-  version "9.0.6-canary.0"
-  resolved "https://registry.yarnpkg.com/next-server/-/next-server-9.0.6-canary.0.tgz#b239671323d0e7dc68612fa4641e07aad615d2a6"
-  integrity sha512-L4vY37SwHP9Iylqlz3NRu1VOeIswp3WSbHh2N6pB5X3yp5DZvG5lkgkG0aZugLPLAVPVFASyD4cts/9OW63Qbw==
+"next@https://uploads.codesandbox.io/uploads/user/3f349c72-4ece-477b-a59f-cff00aee07fc/8Ew6-next11.tar.gz":
+  version "9.0.6-canary.1"
+  resolved "https://uploads.codesandbox.io/uploads/user/3f349c72-4ece-477b-a59f-cff00aee07fc/8Ew6-next11.tar.gz#a12c6cfbdbd0d2a340d753994f6edc8c07a6f983"
   dependencies:
     "@ampproject/toolbox-optimizer" "1.0.1"
-    chalk "2.4.2"
-    compression "1.7.4"
-    content-type "1.0.4"
-    cookie "0.4.0"
-    etag "1.8.1"
-    find-up "4.0.0"
-    fresh "0.5.2"
-    path-to-regexp "2.1.0"
-    prop-types "15.7.2"
-    raw-body "2.4.0"
-    react-is "16.8.6"
-    send "0.17.1"
-    styled-jsx "3.2.2"
-    url "0.11.0"
-
-next@^9.0.6-canary.0:
-  version "9.0.6-canary.0"
-  resolved "https://registry.yarnpkg.com/next/-/next-9.0.6-canary.0.tgz#d94d8dbfba4123bf373317d81b253ba0c0b22673"
-  integrity sha512-OIrHb27lSzBacO/9CbDfbJa/NqLUI2YAd06o3PDHzvtPzf5bF1PoranTeLXomqLVKV3FpwPtmWpLgCfwzE1Wlw==
-  dependencies:
     "@babel/core" "7.4.5"
     "@babel/plugin-proposal-class-properties" "7.4.4"
     "@babel/plugin-proposal-object-rest-spread" "7.4.4"
@@ -6135,8 +6114,12 @@ next@^9.0.6-canary.0:
     babel-plugin-transform-react-remove-prop-types "0.4.24"
     chalk "2.4.2"
     ci-info "2.0.0"
+    compression "1.7.4"
     conf "5.0.0"
+    content-type "1.0.4"
+    cookie "0.4.0"
     devalue "2.0.0"
+    etag "1.8.1"
     find-up "4.0.0"
     fork-ts-checker-webpack-plugin "1.3.4"
     fresh "0.5.2"
@@ -6145,12 +6128,15 @@ next@^9.0.6-canary.0:
     launch-editor "2.2.1"
     loader-utils "1.2.3"
     mkdirp "0.5.1"
-    next-server "9.0.6-canary.0"
     node-fetch "2.6.0"
+    path-to-regexp "2.1.0"
+    pnp-webpack-plugin "1.5.0"
     prop-types "15.7.2"
     prop-types-exact "1.2.0"
+    raw-body "2.4.0"
     react-error-overlay "5.1.6"
     react-is "16.8.6"
+    send "0.17.1"
     source-map "0.6.1"
     string-hash "1.1.3"
     strip-ansi "5.2.0"
@@ -6863,6 +6849,13 @@ png-async@^0.9.4:
   resolved "https://registry.yarnpkg.com/png-async/-/png-async-0.9.4.tgz#0638817508fcf4e732706b2f82c74c947cb83f78"
   integrity sha512-B//AXX9TkneKfgtOpT1mdUnnhk2BImGD+a98vImsMU8uo1dBeHyW/kM2erWZ/CsYteTPU/xKG+t6T62heHkC3A==
 
+pnp-webpack-plugin@1.5.0:
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/pnp-webpack-plugin/-/pnp-webpack-plugin-1.5.0.tgz#62a1cd3068f46d564bb33c56eb250e4d586676eb"
+  integrity sha512-jd9olUr9D7do+RN8Wspzhpxhgp1n6Vd0NtQ4SFkmIACZoEL1nkyAdW9Ygrinjec0vgDcWjscFQQ1gDW8rsfKTg==
+  dependencies:
+    ts-pnp "^1.1.2"
+
 posix-character-classes@^0.1.0:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/posix-character-classes/-/posix-character-classes-0.1.1.tgz#01eac0fe3b5af71a2a6c02feabb8c1fef7e00eab"
@@ -7152,10 +7145,9 @@ react-copy-to-clipboard@^5.0.1:
     copy-to-clipboard "^3"
     prop-types "^15.5.8"
 
-react-dom@^16.9.0:
+"react-dom@https://uploads.codesandbox.io/uploads/user/3f349c72-4ece-477b-a59f-cff00aee07fc/mji9-react-dom.tar.gz":
   version "16.9.0"
-  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.9.0.tgz#5e65527a5e26f22ae3701131bcccaee9fb0d3962"
-  integrity sha512-YFT2rxO9hM70ewk9jq0y6sQk8cL02xm4+IzYBz75CQGlClQQ1Bxq0nhHF6OtSbit+AIahujJgb/CPRibFkMNJQ==
+  resolved "https://uploads.codesandbox.io/uploads/user/3f349c72-4ece-477b-a59f-cff00aee07fc/mji9-react-dom.tar.gz#d0435061aa52d12c7fd0c58225725618b33fb073"
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
@@ -7220,10 +7212,9 @@ react-syntax-highlight@^15.3.1:
     highlight.js "^9.12.0"
     prop-types "^15.5.10"
 
-react@^16.9.0:
+"react@https://uploads.codesandbox.io/uploads/user/3f349c72-4ece-477b-a59f-cff00aee07fc/E4eg-react.tar.gz":
   version "16.9.0"
-  resolved "https://registry.yarnpkg.com/react/-/react-16.9.0.tgz#40ba2f9af13bc1a38d75dbf2f4359a5185c4f7aa"
-  integrity sha512-+7LQnFBwkiw+BobzOF6N//BdoNw0ouwmSJTEm9cglOOmsg/TMiFHZLe2sEoN5M7LgJTj9oHH0gxklfnQe66S1w==
+  resolved "https://uploads.codesandbox.io/uploads/user/3f349c72-4ece-477b-a59f-cff00aee07fc/E4eg-react.tar.gz#cf7f9a9c022e03837a96f6711eaec0f779201f8f"
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
@@ -8388,6 +8379,11 @@ tryer@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/tryer/-/tryer-1.0.1.tgz#f2c85406800b9b0f74c9f7465b81eaad241252f8"
   integrity sha512-c3zayb8/kWWpycWYg87P71E1S1ZL6b6IJxfb5fvsUgsf0S2MVGaDhDXXjDMpdCpfWXqptc+4mXwmiy1ypXqRAA==
+
+ts-pnp@^1.1.2:
+  version "1.1.4"
+  resolved "https://registry.yarnpkg.com/ts-pnp/-/ts-pnp-1.1.4.tgz#ae27126960ebaefb874c6d7fa4729729ab200d90"
+  integrity sha512-1J/vefLC+BWSo+qe8OnJQfWTYRS6ingxjwqmHMqaMxXMj7kFtKLgAaYW3JeX3mktjgUL+etlU8/B4VUAUI9QGw==
 
 tslib@1.10.0, tslib@^1.9.0:
   version "1.10.0"

@@ -1,5 +1,6 @@
 // Theirs
 import React from 'react'
+import ReactDOM from 'react-dom'
 import domtoimage from 'dom-to-image'
 import Dropzone from 'dropperx'
 import debounce from 'lodash.debounce'
@@ -44,6 +45,18 @@ const SnippetToolbar = dynamic(() => import('./SnippetToolbar'), {
 
 const getConfig = omit(['code'])
 
+const IS_SAFARI =
+  typeof window !== 'undefined' &&
+  window.navigator &&
+  window.navigator.userAgent.indexOf('Safari') !== -1 &&
+  window.navigator.userAgent.indexOf('Chrome') === -1
+
+const IS_FIREFOX =
+  typeof window !== 'undefined' &&
+  window.navigator &&
+  window.navigator.userAgent.indexOf('Firefox') !== -1 &&
+  window.navigator.userAgent.indexOf('Chrome') === -1
+
 class Editor extends React.Component {
   static contextType = ApiContext
 
@@ -52,7 +65,8 @@ class Editor extends React.Component {
     this.state = {
       ...DEFAULT_SETTINGS,
       ...this.props.snippet,
-      loading: true
+      ...getRouteState(props.router),
+      loading: false
     }
 
     this.export = this.export.bind(this)
@@ -65,17 +79,17 @@ class Editor extends React.Component {
     this.onDrop = this.onDrop.bind(this)
   }
 
-  async componentDidMount() {
-    const { queryState } = getRouteState(this.props.router)
+  static getDerivedStateFromProps(props, state) {
+    const { queryState } = getRouteState(props.router)
+    const settings = typeof localStorage === 'undefined' ? null : getSettings(localStorage);
 
     const newState = {
       // TODO we could create an interface for loading this config, so that it looks identical
       // whether config is loaded from localStorage, gist, or even something like IndexDB
       // Load options from gist or localStorage
-      ...(this.props.snippet ? null : getSettings(localStorage)),
+      ...(props.snippet ? null : settings),
       // and then URL params
       ...queryState,
-      loading: false
     }
 
     // Makes sure the slash in 'application/X' is decoded
@@ -87,16 +101,7 @@ class Editor extends React.Component {
       newState.fontFamily = DEFAULT_SETTINGS.fontFamily
     }
 
-    this.setState(newState)
-
-    this.isSafari =
-      window.navigator &&
-      window.navigator.userAgent.indexOf('Safari') !== -1 &&
-      window.navigator.userAgent.indexOf('Chrome') === -1
-    this.isFirefox =
-      window.navigator &&
-      window.navigator.userAgent.indexOf('Firefox') !== -1 &&
-      window.navigator.userAgent.indexOf('Chrome') === -1
+    return newState;
   }
 
   carbonNode = React.createRef()
@@ -122,7 +127,7 @@ class Editor extends React.Component {
   ) {
     // if safari, get image from api
     const isPNG = format !== 'svg'
-    if (this.context.image && this.isSafari && isPNG) {
+    if (this.context.image && IS_SAFARI && isPNG) {
       const themeConfig = this.getTheme()
       // pull from custom theme highlights, or state highlights
       const encodedState = serializeState({
@@ -233,7 +238,7 @@ class Editor extends React.Component {
       if (format !== 'open') {
         link.download = `${prefix}.${format}`
       }
-      if (this.isFirefox) {
+      if (IS_FIREFOX) {
         link.target = '_blank'
       }
       link.href = url

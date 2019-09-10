@@ -39,17 +39,12 @@ function toastsReducer(curr, action) {
 }
 
 function EditorContainer(props) {
-  const [themes, updateThemes] = React.useState(THEMES)
+  const storedThemes = typeof localStorage === 'undefined' ? [] : getThemes(localStorage);
+
+  const [themes, updateThemes] = React.useState([...THEMES, ...storedThemes])
   const api = useAPI()
   const user = useAuth()
   const [update, { loading }] = useAsyncCallback(api.snippet.update)
-
-  React.useEffect(() => {
-    const storedThemes = getThemes(localStorage) || []
-    if (storedThemes) {
-      updateThemes(currentThemes => [...storedThemes, ...currentThemes])
-    }
-  }, [])
 
   React.useEffect(() => {
     saveThemes(themes.filter(({ custom }) => custom))

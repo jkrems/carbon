@@ -1,5 +1,6 @@
 const bundleAnalyzer = require('@next/bundle-analyzer')
 const withOffline = require('next-offline')
+const path = require("path")
 
 const withBundleAnalyzer = bundleAnalyzer({ enabled: true })
 
@@ -34,6 +35,15 @@ const config = withOffline({
     FIREBASE_FE_APP_ID: process.env.FIREBASE_FE_APP_ID,
     FIREBASE_API_KEY: process.env.FIREBASE_API_KEY,
     STRIPE_PUBLIC_KEY: process.env.STRIPE_PUBLIC_KEY
+  },
+  webpack: (config, {isServer}) => {
+    config.resolveLoader.alias = config.resolveLoader.alias || {};
+    config.resolveLoader.alias["progressive-hydration"] = isServer ? path.resolve(
+      "./progressive-hydration-server-loader"
+    ) : path.resolve(
+      "./progressive-hydration-client-loader"
+    );
+    return config;
   }
 })
 

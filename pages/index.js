@@ -22,17 +22,7 @@ class Index extends React.Component {
   render() {
     return (
       <Page enableHeroText={true}>
-        <MetaLinks />
-        <Either>
-          <EditorContainer router={this.props.router} snippet={this.props.snippet} />
-          <p>
-            An unexpected error has occurred. Please{' '}
-            <u>
-              <a href="https://github.com/carbon-app/carbon">file an issue here</a>
-            </u>
-            .
-          </p>
-        </Either>
+        <EditorContainer router={this.props.router} snippet={this.props.snippet} />
       </Page>
     )
   }
