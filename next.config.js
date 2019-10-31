@@ -2,13 +2,16 @@ const bundleAnalyzer = require('@next/bundle-analyzer')
 const withOffline = require('next-offline')
 const path = require("path")
 
+const withChunkBatching = require('./chunk-batching');
+
 const withBundleAnalyzer = bundleAnalyzer({ enabled: true })
 
-const config = withOffline({
+const config = withChunkBatching(withOffline({
   target: 'serverless',
   experimental: {
     modern: true,
-    granularChunks: true
+    granularChunks: true,
+    reactMode: 'concurrent',
   },
   dontAutoRegisterSw: true,
   workboxOpts: {
@@ -36,7 +39,7 @@ const config = withOffline({
     FIREBASE_API_KEY: process.env.FIREBASE_API_KEY,
     STRIPE_PUBLIC_KEY: process.env.STRIPE_PUBLIC_KEY
   },
-  webpack: (config, {isServer}) => {
+  webpack: (config, {isServer, dev}) => {
     config.resolveLoader.alias = config.resolveLoader.alias || {};
     config.resolveLoader.alias["progressive-hydration"] = isServer ? path.resolve(
       "./progressive-hydration-server-loader"
@@ -45,6 +48,6 @@ const config = withOffline({
     );
     return config;
   }
-})
+}))
 
 module.exports = process.env.ANALYZE === 'true' ? withBundleAnalyzer(config) : config
